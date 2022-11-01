@@ -1,4 +1,4 @@
-// import React from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 
 // output jsx to react root
@@ -45,3 +45,19 @@ function getGreeting(user) {
     }
     return <h1>Hello, Stranger.</h1>;
 }
+
+const showFunctionName = ReactDOM.createRoot(document.getElementById('showFunctionName'));
+showFunctionName.render(getGreeting());
+
+// // create new element for html. use either element option
+// const element00 = React.createElement(
+//     'h1',
+//     { className: 'greeting' },
+//     'Hello World'
+// );
+
+// const element = (
+//     <h1 className="greeting">
+//         Hello, world!
+//     </h1>
+// );
