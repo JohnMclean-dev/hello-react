@@ -66,3 +66,15 @@ function tick() {
 };
 
 setInterval(tick, 1000)
+
+// components are essentially functions which accept arbitrary inputs refered to as props (properties)
+function Welcome(props) {
+    return <h1>Hello {props.name}</h1>
+}
+
+const dog = {
+    name: 'Lily'
+}
+
+const showDogName = ReactDOM.createRoot(document.getElementById('showDogName'));
+showDogName.render(Welcome(dog));
