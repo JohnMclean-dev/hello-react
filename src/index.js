@@ -1,5 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
+import "./index.css";
 
 // output jsx to react root
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -41,23 +42,27 @@ showFormatName.render(formatNameElement);
 // jsx can also be the output of a function.
 function getGreeting(user) {
     if (user) {
-        return <h1>Hello, {formatName(user)}!</h1>;
+        return <h1>Hello {formatName(user)}!</h1>;
     }
-    return <h1>Hello, Stranger.</h1>;
+    return <h1>Hello Stranger.</h1>;
 }
 
 const showFunctionName = ReactDOM.createRoot(document.getElementById('showFunctionName'));
 showFunctionName.render(getGreeting());
 
-// // create new element for html. use either element option
-// const element00 = React.createElement(
-//     'h1',
-//     { className: 'greeting' },
-//     'Hello World'
-// );
+// notes on how to render elements in index.html
+const showTime = ReactDOM.createRoot(
+    document.getElementById('showTime')
+);
 
-// const element = (
-//     <h1 className="greeting">
-//         Hello, world!
-//     </h1>
-// );
+function tick() {
+    const element = (
+        <div style={{ color: 'red' }}>
+            <h1>Guess the time?</h1>
+            <h2>Psych! it is {new Date().toLocaleTimeString()}</h2>
+        </div>
+    );
+    showTime.render(element);
+};
+
+setInterval(tick, 1000)
